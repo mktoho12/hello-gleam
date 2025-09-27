@@ -1,7 +1,7 @@
-import gleam/io
-import gleam/int
-import gleam/list
 import gleam/erlang/process
+import gleam/int
+import gleam/io
+import gleam/list
 
 pub fn main() -> Nil {
   // Run loads of green threads, no problem
