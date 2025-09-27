@@ -1,0 +1,21 @@
+{
+  "name": "Gleam Development",
+  "image": "ghcr.io/gleam-lang/gleam:nightly-erlang",
+  "customizations": {
+    "vscode": {
+      "extensions": ["tamasfe.even-better-toml", "esbenp.prettier-vscode"],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+      }
+    }
+  },
+  "postCreateCommand": "gleam deps download && gleam run",
+  "remoteUser": "root",
+  "mounts": [
+    "source=${localWorkspaceFolderBasename}-gleam-build,target=${containerWorkspaceFolder}/build,type=volume",
+    "source=${localWorkspaceFolderBasename}-gleam-deps,target=/root/.cache/gleam,type=volume"
+  ],
+  "forwardPorts": []
+}
